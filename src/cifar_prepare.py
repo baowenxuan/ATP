@@ -3,12 +3,13 @@ Partition a centralized dataset to clients in FL
 """
 import numpy as np
 
-from dataset import create_dataset, shapes_out # , create_dataset_natural_shift
+from dataset import create_dataset, shapes_out  # , create_dataset_natural_shift
 from partition import create_partition
 from corruption import make_cifar10_c, make_cifar100_c
 from utils import pickle_save
 from options import args_parser
 from torch.utils.data import ConcatDataset
+
 
 # from visual import visualize_label_distribution
 
@@ -54,11 +55,11 @@ def main(args):
 
         if args.dataset == 'cifar10':
             cifar_c, labels, corruption = make_cifar10_c(partition_idxs, is_train, data_dir=args.data_dir,
-                                                        mode=args.corruption)
+                                                         mode=args.corruption)
 
         elif args.dataset == 'cifar100':
             cifar_c, labels, corruption = make_cifar100_c(partition_idxs, is_train, data_dir=args.data_dir,
-                                                         mode=args.corruption)
+                                                          mode=args.corruption)
 
         obj = {
             'X': cifar_c,

@@ -188,14 +188,14 @@ def args_parser():
         args.num_clients, args.partition, args.partition_seed)
     args.partition_path = os.path.join(args.partition_dir, args.dataset, partition_filename)
 
-    # the path for corrputed dataset
+    # the path for corrupted dataset
     corruption_filename = 'client_%d_partition_%s_corruption_%s_seed_%d.pkl' % (
         args.num_clients, args.partition, args.corruption, args.partition_seed)
-    args.corruption_path = os.path.join(args.data_dir, 'ttp', args.dataset, corruption_filename)
+    args.corruption_path = os.path.join(args.data_dir, 'atp', args.dataset, corruption_filename)
 
     # the path of domain dataset
     if args.dataset == 'pacs_aug':
-        args.domain_path = os.path.join(args.data_dir, 'ttp',
+        args.domain_path = os.path.join(args.data_dir, 'atp',
                                         args.dataset + '_seed_' + str(args.partition_seed) + '.pkl')
 
     args.device = torch.device('cuda') if torch.cuda.is_available() and args.cuda else torch.device('cpu')
